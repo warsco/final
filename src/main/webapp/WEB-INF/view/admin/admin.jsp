@@ -312,16 +312,6 @@
         </div>
         <!-- END User widget -->
 
-
-        <!-- Shot stats -->
-        <div class="sidebar-block">
-          <ul class="single-shot-stats">
-            <li><i class="fa fa-eye"></i><span>658</span></li>
-            <li><a class="like" href="#"><i class="fa fa-heart"></i><span>189</span></a></li>
-          </ul>
-        </div>
-        <!-- END Shot stats -->
-
       </aside>
     </div>
   </div>
