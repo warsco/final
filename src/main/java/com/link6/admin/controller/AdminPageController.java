@@ -24,9 +24,10 @@ public class AdminPageController {
 	public ModelAndView adminPage(CommandMap paramMap) throws Exception {
 		ModelAndView mv = new ModelAndView("admin");
 
-		// 카테고리 대분류 리스트 불러오기
-		mv.addObject("catList", adminService.catList(paramMap.getMap()));
-
+		mv.addObject("normal",adminService.normalMember());
+		mv.addObject("special",adminService.specialMember());
+		mv.addObject("all",adminService.allMember());
+		
 		return mv;
 	}
 
@@ -65,7 +66,7 @@ public class AdminPageController {
 
 		return mv;
 	}
-
+	
 	// 카테고리 대분류 리스트
 	@RequestMapping("/catList.do")
 	public ModelAndView catList(CommandMap paramMap) throws Exception {

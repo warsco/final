@@ -18,7 +18,7 @@
     <!-- 아이콘 import -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
 	<!-- admin 페이지 js import-->
-	<script src="/final/assets/js/admin.js?ver=1.158"></script>
+	<script src="/final/assets/js/admin.js?ver=1.159"></script>
 </head>
 
 <body class="sticky-nav" style="font-family:nanum-squareL">
@@ -159,9 +159,9 @@
 			     <!-- 관리자 메뉴2 - 회원통계 숨김메뉴 -->
 				 <div class="collapse" id="admin2_tab"><br>
 				   <table class="table admin" style="font-size:13px;">
-				   	<tr><td></td><td><i class="ti-user"></i> 일반회원 : ${normalUser }</td></tr>
-				   	<tr><td></td><td><i class="ti-cut"></i> 전문가회원 : ${proUser }</td></tr>
-				   	<tr><td></td><td><i class="ti-server"></i> 전체회원 : ${allUser }</td></tr>
+				   	<tr><td></td><td><i class="ti-user"></i> 일반회원 : ${normal }</td></tr>
+				   	<tr><td></td><td><i class="ti-cut"></i> 전문가회원 : ${special }</td></tr>
+				   	<tr><td></td><td><i class="ti-server"></i> 전체회원 : ${all }</td></tr>
 				   </table>
 				 </div>
 			     <!-- END 관리자메뉴2 - 회원통계 -->
@@ -291,60 +291,6 @@
           </div>
         </div>
         <!-- END Shot and details -->
-
-
-        <!-- Comments -->
-        <div id="comments" class="card">
-          <div class="card-header">
-            <h6>Comments (45)</h6>
-
-            <div class="comment-pagination">
-              <a class="prev" href="#"><i class="ti-angle-left"></i></a>
-              <a class="next" href="#"><i class="ti-angle-right"></i></a>
-            </div>
-          </div>
-
-          <ul class="comments">
-            <li>
-              <a href="user-profile.html"><img src="assets/img/avatar-1.jpg" alt=""></a>
-              <h6><a href="user-profile.html">Jose</a> <time datetime="2016-02-04 22:30">14 hours ago</time></h6>
-              <p>Nam tincidunt diam id nisl accumsan molestie.</p>
-            </li>
-
-            <li>
-              <a href="user-profile.html"><img src="assets/img/avatar-5.jpg" alt=""></a>
-              <h6><a href="user-profile.html">Dumduri</a> <time datetime="2016-02-04 22:30">1 days ago</time></h6>
-              <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent scelerisque porta bibendum. Mauris ac libero convallis, facilisis diam quis, porta lorem. Aenean suscipit risus a faucibus porta.</p>
-            </li>
-
-
-            <li>
-              <a href="user-profile.html"><img src="assets/img/avatar-1.jpg" alt=""></a>
-              <h6><a href="user-profile.html">Jose</a> <time datetime="2016-02-04 22:30">1 week ago</time></h6>
-              <p>Ut pulvinar libero tortor, laoreet suscipit tellus varius nec. In tristique pretium leo sed accumsan. Mauris ac ex lectus. Fusce vitae imperdiet diam.</p>
-            </li>
-
-            <li>
-              <a href="user-profile.html"><img src="assets/img/avatar-5.jpg" alt=""></a>
-              <h6><a href="user-profile.html">Dumduri</a> <time datetime="2016-02-04 22:30">1 week ago</time></h6>
-              <p>Ut pulvinar libero tortor, laoreet suscipit tellus varius nec. In tristique pretium leo sed accumsan.</p>
-            </li>
-
-            <li>
-              <a href="user-profile.html"><img src="assets/img/avatar-3.jpg" alt=""></a>
-              <h6><a href="user-profile.html">Mary</a> <time datetime="2016-02-04 22:30">2 weeks ago</time></h6>
-              <p>Ut pulvinar libero tortor, laoreet suscipit tellus varius nec. Mauris ac ex lectus. Fusce vitae imperdiet diam.</p>
-            </li>
-          </ul>
-
-          <form class="comment-form">
-            <img src="assets/img/avatar-2.jpg" alt="">
-            <p><input type="text" class="form-control" placeholder="Leave a comment..."></p>
-          </form>
-
-        </div>
-        <!-- END Comments -->
-
       </div>
 
       <aside class="col-xs-12 col-md-4 shot-sidebar">
@@ -375,77 +321,6 @@
           </ul>
         </div>
         <!-- END Shot stats -->
-
-
-        <!-- Details -->
-        <div class="sidebar-block">
-          <h6>Details</h6>
-          <dl class="half-half">
-            <dt>Size</dt>
-            <dd>5472 x 3648</dd>
-
-            <dt>File size</dt>
-            <dd>1.1 MB</dd>
-
-            <dt>File type</dt>
-            <dd>Jpeg</dd>
-
-            <dt>Aspect Ratio</dt>
-            <dd>4:3</dd>
-
-            <dt>Location</dt>
-            <dd>Denmark</dd>
-
-            <dt>License</dt>
-            <dd>GPL</dd>
-
-          </dl>
-        </div>
-        <!-- END Details -->
-
-
-        <!-- Tags -->
-        <div class="sidebar-block">
-          <h6>Tags</h6>
-          <div class="tag-list">
-            <a href="#">Website</a>
-            <a href="#">Social</a>
-            <a href="#">App</a>
-            <a href="#">Light design</a>
-            <a href="#">Blue</a>
-            <a href="#">Pages</a>
-            <a href="#">Facebook</a>
-          </div>
-        </div>
-        <!-- END Tags -->
-
-
-        <!-- Share -->
-        <div class="sidebar-block">
-          <h6>Share on</h6>
-          <ul class="social-icons text-center">
-            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-            <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
-          </ul>
-        </div>
-        <!-- END Share -->
-
-
-        <!-- More shots -->
-        <div class="sidebar-block">
-          <h6>More from Facebook</h6>
-          <ul class="photo-list cols-2">
-            <li><a href="#"><img src="assets/img/shot-3.jpg" alt=""></a></li>
-            <li><a href="#"><img src="assets/img/shot-4.jpg" alt=""></a></li>
-            <li><a href="#"><img src="assets/img/shot-7.jpg" alt=""></a></li>
-            <li><a href="#"><img src="assets/img/shot-6.jpg" alt=""></a></li>
-          </ul>
-        </div>
-        <!-- END More shots -->
-        
 
       </aside>
     </div>

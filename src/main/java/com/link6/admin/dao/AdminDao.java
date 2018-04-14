@@ -77,8 +77,14 @@ public class AdminDao extends AbstractAdminDao{
 		return searchListCount("searchListCount",paramMap);
 	}
 	
-	public int memberSortCount(Map<String, Object> paramMap) throws Exception{
-		return memberSortCount("memberSortCount",paramMap);
+	public int normalMember() throws Exception{
+		return normalMember("normalMember");
+	}
+	public int specialMember() throws Exception{
+		return specialMember("specialMember");
+	}
+	public int allMember() throws Exception{
+		return allMember("allMember");
 	}
 	
 	public AdminDto memberInfo(Map<String, Object> paramMap) throws Exception{

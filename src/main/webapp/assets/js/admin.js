@@ -10,7 +10,6 @@ function catList(){
 
 //카테고리 선택(하위카테고리 리스트생성)
 function subCatList(id,fieldno) {
-		console.log("넌 안돼!");
 		$(".admin_category").removeClass("clicked");
 		$("#"+id).addClass("clicked");
 		var category = id;
@@ -18,7 +17,6 @@ function subCatList(id,fieldno) {
 		var title =category;
 		$("#title_subcat").empty();
 		$("#title_subcat").append(title);
-		//$('#sub_cat_thead').show();
 		$('#sub_cat_thead').show();
 
 		
@@ -118,7 +116,6 @@ function save_addCat(){
 function save_addSubCat(){
 	var sub_category = $("#add_cat").val();
 	var category = $("#title_subcat").text();
-	console.log(category);
 	if(sub_category==""){
 		alert("1글자 이상 입력해주세요");
 		return;
@@ -146,13 +143,8 @@ function delCat(fieldno, sub_category){
 		comAjax.setUrl("/final/delCat.do");
 		
 		if(sub_category==''){
-			if($('#sub_cat_thead').css("display")=="table"){
-				console.log("안되냐?");
-				$('#sub_cat_thead').attr('style', 'display:none;');
-			}
 			comAjax.setCallback("catCallback");
 		}else{
-			console.log("넌 아니지!");
 			comAjax.setCallback("subCatCallback");
 			comAjax.addParam("category", $("#title_subcat").text());
 		}
@@ -160,7 +152,6 @@ function delCat(fieldno, sub_category){
 	    comAjax.addParam("fieldno", fieldno);
 	    comAjax.addParam("sub_category", sub_category);
 	    comAjax.ajax();
-	    console.log("마지막??");
 	}else{   //취소
 		return;
 	}
@@ -228,10 +219,9 @@ function save_sub(category,bcat){
 		return;
 	}
 
-	
 	if (confirm("정말 수정하시겠습니까?") == true){    //확인
 		var new_category = $("#mod_"+category).val();
-		
+
 		var comAjax = new ComAjax();
 		comAjax.setUrl("/final/modifyCat.do");
 		comAjax.setCallback("subCatCallback");
@@ -425,6 +415,3 @@ function _movePage(value){
         eval(gfv_eventName + "(value);");
     }
 }
-
-
-

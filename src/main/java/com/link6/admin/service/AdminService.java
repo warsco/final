@@ -24,8 +24,12 @@ public interface AdminService {
 	int delCat(Map<String, Object> map) throws Exception;
 	
 	int searchMemberListCount(Map<String, Object> map) throws Exception;
+		
+	int normalMember() throws Exception;
 	
-	int memberSortCount(Map<String, Object> map) throws Exception;
+	int specialMember() throws Exception;
+	
+	int allMember() throws Exception;
 	
 	AdminDto memberInfo(Map<String, Object> map) throws Exception;
 	

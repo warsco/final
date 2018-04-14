@@ -45,8 +45,16 @@ public class AdminServiceImpl implements AdminService{
 	}
 	
 	@Override
-	public int memberSortCount(Map<String, Object> paramMap) throws Exception{
-		return adminDao.memberSortCount(paramMap);
+	public int normalMember() throws Exception{
+		return adminDao.normalMember();
+	}
+	@Override
+	public int specialMember() throws Exception{
+		return adminDao.specialMember();
+	}
+	@Override
+	public int allMember() throws Exception{
+		return adminDao.allMember();
 	}
 	
 	@Override

@@ -43,8 +43,14 @@ public class AbstractAdminDao  extends SqlSessionDaoSupport{
 		return getSqlSession().selectOne(queryId,params);
 	}
 	
-	int memberSortCount(String queryId, Object params) {
-		return getSqlSession().selectOne(queryId,params);
+	int normalMember(String queryId) {
+		return getSqlSession().selectOne(queryId);
+	}
+	int specialMember(String queryId) {
+		return getSqlSession().selectOne(queryId);
+	}
+	int allMember(String queryId) {
+		return getSqlSession().selectOne(queryId);
 	}
 	
 	AdminDto memberInfo(String queryId, Object params) {

@@ -28,8 +28,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from member where membername||memberno||phone||email||membertype like '%${searchKeyword}%'
 	</select>
 	
-	<select id="memberSortCount" parameterType="string" resultType="int">
-		select count(*) from member where membertype='${membertype}'
+	<select id="normalMember" resultType="int">
+		select count(*) from member where membertype='일반'
+	</select>
+	<select id="specialMember" resultType="int">
+		select count(*) from member where membertype='전문가'
+	</select>
+	<select id="allMember" resultType="int">
+		select count(*) from member
 	</select>
 	
 	<select id="memberInfo" parameterType="hashmap" resultType="com.link6.admin.dto.AdminDto">
@@ -59,7 +65,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="delCat" parameterType="hashmap">
 		delete from field where fieldno=#{fieldno, jdbcType=INTEGER} or sub_category=#{sub_category, jdbcType=VARCHAR}
 	</delete>
-	
-	
-
 </mapper>
