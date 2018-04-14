@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+      <mvc:annotation-driven>  
+      <mvc:message-converters>
+         <!-- @ResponseBody로 String 처리할때 한글처리 -->
+         <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+            <property name="supportedMediaTypes">
+               <list>
+                  <value>text/html;charset=UTF-8</value>
+               </list>
+            </property>
+         </bean>
+      </mvc:message-converters>
+   </mvc:annotation-driven>
+   
+   
+      <bean id="multipartResolver"
+      class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+   </bean>
+   
+
+	<bean id="tilesviewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" />
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list> 
+				<value>/WEB-INF/tiles/tiles-def.xml</value>
+			</list> 
+		</property>
+		<property name="preparerFactoryClass" value="org.springframework.web.servlet.view.tiles3.SpringBeanPreparerFactory"></property>
+	</bean>
+
+	<!-- 도영-->
+<!-- tiles 이미지 게시판 -->
+<bean id ="i_commetDao" class ="doyoung.main.dao.I_CommentDAO" p:sqlSessionFactory-ref="sqlSessionFactory"/>
+<bean id ="imageDao" class ="doyoung.main.dao.I_BoardDAO" p:sqlSessionFactory-ref="sqlSessionFactory"/>
+<bean id ="ImageService" class ="doyoung.main.service.ImageServiceImpl"  p:dap-ref="imageDao" />
+<bean id ="i_CommentSerivceImpl" class ="doyoung.main.service.I_CommentSerivceImpl" p:dao-ref="i_commetDao"/>
+<!-- 게시판 -->
+<bean id ="ImageListController" class="doyoung.main.controller.ImageListController" p:service2-ref="i_CommentSerivceImpl" p:service-ref="ImageService"/>
+<!-- 글쓰기 -->  
+<bean id ="ImageAddController" class ="doyoung.main.controller.ImageAddController" p:service-ref="ImageService"/>
+<!-- 코멘트 글쓰기 -->
+<bean id ="imageCommentController" class ="doyoung.main.controller.ImageCommentController" p:service2-ref="i_CommentSerivceImpl" />
+
+
+<!--마이페이지 -->
+	<bean id="myPageController" class="myPage.MypageController" />
+	<!--프로젝트 -->
+	<bean id="proejctController" class="project.ProjectController"/>
+	
+	<!-- 메인-->
+	 <bean id="main" class="main.MainController" />
+	<!-- 회원가입 -->
+	<bean id="register.controller" class="register.controller.RegisterController" p:dao-ref="registerDAO"/>
+	<bean id="registerDAO" class="register.controller.RegisterDAO" p:sqlSessionFactory-ref="sqlSessionFactory" />
+	 
+	<!-- 로그인 -->
+	<bean id="loginController" class="login.controller.LoginController" p:dao-ref="loginDao"/>
+	<bean id="loginDao" class="login.controller.LoginDAO" p:sqlSessionFactory-ref="sqlSessionFactory"/>
+	
+	<!-- 포트폴리오 작성 -->
+	<bean id="portfolio" class="portfolio.PortfolioController" />
+
+	<!-- 관리자페이지 -->  
+	<bean id="adminPageController" class="com.link6.admin.controller.AdminPageController" />
+	<bean id="adminDao" class="com.link6.admin.dao.AdminDao" p:sqlSessionFactory-ref="sqlSessionFactory"/>
+	<bean id="adminService" class="com.link6.admin.service.AdminServiceImpl"/>
+	  <!-- jsonView 설정 -->
+	  <bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
+	  <!-- CustomMapArgumentResolver -->
+		<mvc:annotation-driven>
+	        <mvc:argument-resolvers>
+	            <bean class="com.link6.admin.util.resolver.CustomMapArgumentResolver"></bean>      
+	        </mvc:argument-resolvers>
+	    </mvc:annotation-driven>
+     
+
+
+
+</beans>

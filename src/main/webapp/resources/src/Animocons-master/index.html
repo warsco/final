@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Animocons: Animated Icons with mo.js | Codrops</title>
+		<meta name="description" content="Animated icons powered by the motion graphics library mo.js by Oleg Solomka" />
+		<meta name="keywords" content="animated icons, svg, webfont, mo.js, facebook, thumbs up, animation, web design" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href='https://fonts.googleapis.com/css?family=Patrick+Hand+SC' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.5.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/icons.css" />
+		<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	</head>
+	<body>
+	<button class="icobutton icobutton--heart"><span class="fa fa-heart"></span><span class="icobutton__text icobutton__text--side">10</span></button>
+	<button class="icobutton icobutton--shopping-cart"><span class="fa fa-shopping-cart"></span></button>	
+		<script src="js/mo.min.js"></script>
+		<script>
+	    var scaleCurve = mojs.easing.path('M0,100 L25,99.9999983 C26.2328835,75.0708847 19.7847843,0 100,0');
+	    var el = document.querySelector('.icobutton'),
+		elSpan = el.querySelector('span'),
+		// mo.js timeline obj
+		timeline = new mojs.Timeline(),
+
+		// tweens for the animation:
+
+		// burst animation
+		tween1 = new mojs.Burst({
+			parent: el,
+			duration: 1500,
+			shape : 'circle',
+			fill : [ '#988ADE', '#DE8AA0', '#8AAEDE', '#8ADEAD', '#DEC58A', '#8AD1DE' ],
+			opacity: 0.6,
+			childOptions: { radius: {20:0} },
+			radius: {40:120},
+			count: 6,
+			isSwirl: true,
+			easing: mojs.easing.bezier(0.1, 1, 0.3, 1)
+		}),
+		// ring animation
+		tween2 = new mojs.Transit({
+			parent: el,
+			duration: 750,
+			type: 'circle',
+			radius: {0: 50},
+			fill: 'transparent',
+			stroke: '#988ADE',
+			strokeWidth: {15:0},
+			opacity: 0.6,
+			easing: mojs.easing.bezier(0, 1, 0.5, 1)
+		}),
+		// icon scale animation
+		tween3 = new mojs.Tween({
+			duration : 900,
+			onUpdate: function(progress) {
+				var scaleProgress = scaleCurve(progress);
+				elSpan.style.WebkitTransform = elSpan.style.transform = 'scale3d(' + scaleProgress + ',' + scaleProgress + ',1)';
+			}
+		});
+
+	// add tweens to timeline:
+	timeline.add(tween1, tween2, tween3);
+
+	// when clicking the button start the timeline/animation:
+	el.addEventListener('mouseenter', function() {
+		timeline.replay();
+	});
+		</script>
+		
+	</body>
+</html>

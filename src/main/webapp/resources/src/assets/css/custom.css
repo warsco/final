@@ -1,0 +1,41 @@
+ @font-face{
+ font-family: nanum-squareL;
+ src: url('../fonts/NANUMSQUAREROUNDL.TTF');
+ }
+ @font-face{
+ font-family: nanum-squareB;
+ src: url('../fonts/NANUMSQUAREROUNDB.TTF');
+ }
+ 
+ body {
+ font-family:namum-squareL;
+ }
+ 
+table{
+ font-family: nanum-squareL;
+ color : #606873;
+ font-size:14px}
+
+ 
+thead{
+ font-family: nanum-squareB;
+}
+
+.table.admin{
+	margin-bottom:0px;
+	font-color
+}
+
+
+/* 평점, 별점  */
+span.star-prototype, span.star-prototype > * {
+    height: 16px; 
+    background: url(/MavenWeb/resources/src/assets/img/star.png) 0 -16px repeat-x;
+    width: 80px;
+    display: inline-flex;
+}
+ 
+span.star-prototype > * {
+    background-position: 0 0;
+    max-width:80px; 
+}

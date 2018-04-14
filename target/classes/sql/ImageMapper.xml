@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="image">
+
+<select id="getListData" resultType="doyoung.command.ImageCommand">
+select * from portfolio order by port_time
+</select>
+
+<insert id="insertImage" parameterType="doyoung.command.ImageCommand">
+insert into portfolio (portfolioNo,title,path,memberNo,goodCount,fieldNo,port_time,contents,readCount)
+values(portfoliono_seq.nextval,#{title},#{path},#{memberNo},#{goodCount},#{fieldNo},sysdate,#{contents},0)
+
+</insert>
+<select id="listone" parameterType="Integer" resultType="doyoung.command.ImageCommand">
+select * from portfolio where portfolioNo = #{portfolioNo}
+</select>
+
+<update id="readCount" parameterType="Integer">
+update portfolio set readcount = readcount+1 where portfolioNo=#{portfolioNo}
+</update>
+</mapper>

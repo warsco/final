@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+  
+ <!-- 마이페이지 시작 -->
+<tiles-definitions>
+	<definition name="base_layout" template="/WEB-INF/tiles/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+		<put-attribute name="loginModal" value="/WEB-INF/tiles/loginModal.jsp" /> 
+	</definition>
+	<definition name="base_layout2" template="/WEB-INF/tiles/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/tiles/headerd.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/tiles/footerd.jsp" />
+		<put-attribute name="loginModal" value="/WEB-INF/tiles/loginModal.jsp" /> 
+	</definition>
+<!-- 의뢰인 -->	      
+	<definition name="memberMypage" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/view/myPage/memberMypage.jsp"/>
+		<put-attribute name="title" value="마이페이지" />
+	</definition> 
+	<definition name="memberMypageInfomodify" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/view/myPage/memberMypageInfomodify.jsp"/>
+		<put-attribute name="title" value="내 정보 수정" />
+	</definition>
+	<definition name="memberMypagePay" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/view/myPage/memberMypagePay.jsp"/>
+		<put-attribute name="title" value="결제내역" />
+	</definition>
+	<definition name="memberMypageProject" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/view/myPage/memberMypageProject.jsp"/>
+		<put-attribute name="title" value="프로젝트" />
+	</definition>
+	<definition name="memberMypageRequest" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/view/myPage/memberMypageRequest.jsp"/>
+		<put-attribute name="title" value="의뢰" />
+	</definition>
+	<definition name="memberMypageSelectList" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/view/myPage/memberMypageSelectList.jsp"/>
+		<put-attribute name="title" value="찜 목록" />
+	</definition>
+	
+	
+<!-- 전문가 -->
+	<definition name="proMemberMypage" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/view/myPage/proMemberMypage.jsp"/>
+		<put-attribute name="title" value="마이페이지" />
+	</definition> 
+	<definition name="proMypageInfomodify" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/view/myPage/proMypageInfomodify.jsp"/>
+		<put-attribute name="title" value="내 정보 수정" />
+	</definition>
+	<definition name="proMypageIncome" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/view/myPage/proMypageIncome.jsp"/>
+		<put-attribute name="title" value="수입내역" />
+	</definition>
+	<definition name="proMypageProject" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/view/myPage/proMypageProject.jsp"/>
+		<put-attribute name="title" value="프로젝트" />
+	</definition>
+	<definition name="proMypageRequest" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/view/myPage/proMypageRequest.jsp"/>
+		<put-attribute name="title" value="의뢰" />
+	</definition>
+	<definition name="proMypagePortfolio" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/view/myPage/proMypagePortfolio.jsp"/>
+		<put-attribute name="title" value="찜 목록" />
+	</definition>
+
+
+<!-- 마이페이지 끝 -->
+
+<!-- 프로젝트 시작 -->
+	<definition name="detailProject" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/view/project/detailProject.jsp"/>
+		<put-attribute name="title" value="프로젝트 관리" />
+	</definition>
+	<definition name="detailReservation" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/view/project/detailReservation.jsp"/>
+		<put-attribute name="title" value="예약 상세보기" />
+	</definition>
+	<definition name="expertRegister" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/view/project/expertRegister.jsp"/>
+		<put-attribute name="title" value="전문가 세부내용등록" />
+	</definition>
+	<definition name="reservation" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/view/project/reservation.jsp"/>
+		<put-attribute name="title" value="매장 예약" />
+	</definition>
+	<definition name="selectClient" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/view/project/selectClient.jsp"/>
+		<put-attribute name="title" value="프로젝트참여신청" />
+	</definition>
+	<definition name="selectExpert" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/view/project/selectExpert.jsp"/>
+		<put-attribute name="title" value="프로젝트참여전문가선택" />
+	</definition>
+	
+<!-- 프로젝트 끝 -->
+
+<!--  회원가입 -->
+   <definition name="regiNormal" extends="base_layout">
+      <put-attribute name="body" value="/WEB-INF/view/register/regiNormal.jsp"/>
+      <put-attribute name="title" value="회원가입" />
+   </definition>
+   <definition name="regiPro" extends="base_layout">
+      <put-attribute name="body" value="/WEB-INF/view/register/regiPro.jsp"/>
+      <put-attribute name="title" value="회원가입" />
+   </definition>
+   <definition name="register" extends="base_layout">
+      <put-attribute name="body" value="/WEB-INF/view/register/register.jsp"/>
+      <put-attribute name="title" value="회원가입" />
+   </definition>
+   
+   <!-- 회원가입끝 -->
+   
+<!-- 관리자페이지 -->
+   <definition name="admin" extends="base_layout">
+      <put-attribute name="body" value="/WEB-INF/view/admin/admin.jsp"/>
+      <put-attribute name="title" value="관리자페이지" />
+   </definition>
+   <definition name="infoModal" extends="base_layout">
+      <put-attribute name="body" value="/WEB-INF/view/admin/infoModal.jsp"/>
+      <put-attribute name="title" value="회원정보" />
+   </definition>
+<!-- 관리자페이지 끝 -->
+
+
+<!-- 도영 -->
+	<definition name="imageList" extends="base_layout2">
+		<put-attribute name="body" value="/WEB-INF/view/doyoung/imageList.jsp"/>
+		<put-attribute name="title" value="메인페이지" />
+	</definition>  
+<definition name ="imageAddd" extends="base_layout">
+<put-attribute name="title" value ="shot"/>
+<put-attribute name="body" value ="/WEB-INF/view/doyoung/imageAdd.jsp"/>  
+</definition>
+	
+</tiles-definitions>

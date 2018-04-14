@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="i_comment">
+
+<insert id="insertComment" parameterType="doyoung.command.ImageComment">
+insert into portComment values(commentNo_seq.nextval,#{portfoliono},#{content},#{c_time},#{memberNo})
+</insert>
+<select id="getComment" parameterType="Integer" resultType="doyoung.command.ImageComment">
+select * from portComment where  portfolioNo = #{portfolioNo}
+</select>
+
+<select id="commentCount" parameterType="Integer" resultType="Integer">
+select count(*) from portComment where portfolioNo = #{portfolioNo}
+</select>
+
+<select id="selectOne" parameterType="Integer" resultType="doyoung.command.ImageComment">
+select * from portComment where portfolioNo = #{portfolioNo} and rownum =1 order by re_date asc
+</select>
+</mapper>
+
+

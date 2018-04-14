@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<title>Tab Styles Inspiration</title>
+		<meta name="description" content="Tab Styles Inspiration: A small collection of styles for tabs" />
+		<meta name="keywords" content="tabs, inspiration, web design, css, modern, effects, svg" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="/MavenWeb/resources/src/TabStylesInspiration/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="/MavenWeb/resources/src/TabStylesInspiration/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="/MavenWeb/resources/src/TabStylesInspiration/css/tabs.css" />
+		<link rel="stylesheet" type="text/css" href="/MavenWeb/resources/src/TabStylesInspiration/css/tabstyles.css" />
+  		<script src="/MavenWeb/resources/src/TabStylesInspiration/js/modernizr.custom.js"></script>
+	</head>
+	<body>
+		<svg class="hidden">
+			<defs>
+				<path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"/>
+			</defs>
+		</svg>
+		<div class="container">
+			<!-- Top Navigation -->
+			<div class="codrops-top clearfix">
+				<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Tutorials/PagePreloadingEffect/"><span>Previous Demo</span></a>
+				<span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=19559"><span>Back to the Codrops Article</span></a></span>
+			</div>
+			<header class="codrops-header">
+				<h1>Tab Styles Inspiration <span>A small collection of styles for tabs</span></h1>
+				<p class="support">Your browser does not support <strong>flexbox</strong>! <br />Please view this demo with a <strong>modern browser</strong>.</p>
+			</header>
+			 	<section>
+ 					
+ 	
+				<div class="tabs tabs-style-circle">
+					<nav>  
+						<ul>
+							<li class ="detail"><span  class="icon icon-plug"><span>hair2</span></span></li>
+							<li class ="detail"><span  class="icon icon-gift"><span>Molding</span></span></li>
+							<li class ="detail"><span  class="icon icon-box"><span>sports</span></span></li>
+							<li class ="detail"><span  class="icon icon-date"><span>Exercise</span></span></li>
+							<li class ="detail"><span  class="icon icon-plane"><span>passion</span></span></li>
+						</ul>
+					</nav>
+					<div class="content-wrap">
+						<section id="section-circle-1"><p>1</p></section>
+						<section id="section-circle-2"><p>2</p></section>
+						<section id="section-circle-3"><p>3</p></section>
+						<section id="section-circle-4"><p>4</p></section>
+						<section id="section-circle-5"><p>5</p></section>
+					</div><!-- /content -->
+				</div><!-- /tabs -->
+			</section>
+	
+			<!-- Related demos -->
+			<section class="related">
+				<p>If you enjoyed this demo you might also like:</p>
+				<a href="http://tympanus.net/Development/ArrowNavigationStyles/">
+					<img src="img/relatedposts/ArrowNavigationEffects-300x162.png" />
+					<h3>Arrow Navigation Styles</h3>
+				</a>
+				<a href="http://tympanus.net/Development/DotNavigationStyles/">
+					<img src="img/relatedposts/DotNavigationStyles-300x162.png" />
+					<h3>Dot Navigation Styles</h3>
+				</a>
+			</section>
+		</div><!-- /container -->
+		<script src="js/cbpFWTabs.js"></script>
+		<script>
+			(function() {
+
+				[].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
+					new CBPFWTabs( el );
+				});
+
+			})();
+		</script>
+	</body>
+</html>

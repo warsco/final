@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin">
+	<select id="memberList" parameterType="hashmap" resultType="hashmap">
+		select memberno, membername, phone, email, birthday, 
+		TO_CHAR(re_date,'YYYY-MM-DD HH24:MM') RE_DATE,
+		membertype from (select rownum r , aa.* from (select * from member
+		order by RE_DATE desc) aa ) where r <![CDATA[>]]>=
+		#{START} and r <![CDATA[<]]>=#{END}
+	</select>
+	
+	<select id="listCount" resultType="int">
+		select count(*) from member
+	</select>
+	
+	<select id="SearchMemberList" parameterType="hashmap" resultType="hashmap">
+		select aaa.*
+		from (select rownum r , aa.*
+		from (select memberno, membername, phone, email, birthday, TO_CHAR(re_date,'YYYY-MM-DD HH24:MM') re_date, membertype
+		from member order by RE_DATE desc) aa
+		where membername||memberno||phone||email||birthday||re_date||membertype like '%${searchKeyword}%') aaa
+		where r <![CDATA[>]]>=#{START} and r <![CDATA[<]]>=#{END}
+	</select>
+	
+	<select id="searchListCount" resultType="int">
+		select count(*) from member where membername||memberno||phone||email||membertype like '%${searchKeyword}%'
+	</select>
+	
+	<select id="memberSortCount" parameterType="string" resultType="int">
+		select count(*) from member where membertype='${membertype}'
+	</select>
+	
+	<select id="memberInfo" parameterType="hashmap" resultType="com.link6.admin.dto.AdminDto">
+		select * from member where memberNo = #{memberNo}
+	</select>
+	
+	<select id="catList" resultType="hashmap">
+		select fieldno, category from field where sub_category is null order by fieldno
+	</select>
+	
+	<select id="subCatList" parameterType="hashmap" resultType="hashmap">
+		select fieldno, category, sub_category from field where category=#{category} and sub_category is not null order by fieldno
+	</select>
+	
+	<insert id="addCat" parameterType="hashmap">
+		insert into field(fieldno, category, sub_category) values(field_seq.NEXTVAL, #{category}, #{sub_category,jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="modifyCat" parameterType="hashmap">
+		update field set category=#{new_category} where category=#{category}
+	</update>
+	
+	<update id="modifySubCat" parameterType="hashmap">
+		update field set sub_category=#{new_category} where sub_category=#{sub_category}
+	</update>
+	
+	<delete id="delCat" parameterType="hashmap">
+		delete from field where fieldno=#{fieldno, jdbcType=INTEGER} or sub_category=#{sub_category, jdbcType=VARCHAR}
+	</delete>
+	
+	
+
+</mapper>
